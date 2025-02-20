@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure App</title>
+  </head>
+  <body>
+    <h1>Enter Password</h1>
+    <input type="password" id="passwordInput" placeholder="Password" />
+    <button onclick="authenticate()">Enter</button>
+
+    <script>
+      const { ipcRenderer } = require("electron");
+
+      async function authenticate() {
+        const password = document.getElementById("passwordInput").value;
+
+        try {
+          const success = await ipcRenderer.invoke("authenticate", password);
+          if (success) {
+            alert("Authenticated successfully!");
+          } else {
+            alert("Incorrect password!");
+          }
+        } catch (error) {
+          alert("Error during authentication!");
+        }
+      }
+    </script>
+  </body>
+</html>

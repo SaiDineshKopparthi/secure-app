@@ -1,1 +1,32 @@
-/node_modules
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Electron build artifacts
+dist/
+out/
+*.asar
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Authentication and sensitive files
+config.json  # Contains hashed password
+auth.lock  # Temporary authentication file
+
+# Shell script execution files
+shell-protect.sh
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.sublime-workspace
